@@ -1,0 +1,188 @@
+.cp.input-data {
+    position: relative;
+    width: 100%;
+    height: 43.11px;
+    z-index: 1;
+}
+
+.cp.input-data > .__wrapper-input {
+    position: relative;
+    width: inherit;
+    height: inherit;
+    display: table;
+}
+
+.cp.input-data > .__wrapper-input > input[type="text"], 
+.cp.input-data > .__wrapper-input > .__icon-search,
+.cp.input-data > .__wrapper-input > .__wrapper-controllers {
+    height: inherit;
+    float: left;
+}
+
+.cp.input-data > .__wrapper-input > input[type="text"] { 
+    width: calc(100% - (30px + 35px)); 
+    padding: 0 10px 0 13px;
+    border-left: none;
+    border-right: none;
+    border-top: 1px solid rgba(34, 36, 38, 0.15);
+    border-bottom: 1px solid rgba(34, 36, 38, 0.15);
+    color: rgba(0, 0, 0, 0.87);
+}
+
+.cp.input-data > .__wrapper-input > input[type="text"]::placeholder { color: rgba(34, 36, 38, 0.15); }
+
+.cp.input-data > .__wrapper-input > .__icon-search { 
+    width: 30px; 
+    text-align: right;
+    line-height: 41px;
+    border-top-left-radius: 0.28571429rem;
+    border-bottom-left-radius: 0.28571429rem;
+    border-top: 1px solid rgba(34, 36, 38, 0.15);
+    border-bottom: 1px solid rgba(34, 36, 38, 0.15);
+    border-left: 1px solid rgba(34, 36, 38, 0.15);
+    color: rgba(34, 36, 38, 0.70);
+}
+
+.cp.input-data > .__wrapper-input > .__wrapper-controllers { 
+    position: relative;
+    width: 35px; 
+    border-top-right-radius: 0.28571429rem;
+    border-bottom-right-radius: 0.28571429rem;
+    border-top: 1px solid rgba(34, 36, 38, 0.15);
+    border-bottom: 1px solid rgba(34, 36, 38, 0.15);
+    border-right: 1px solid rgba(34, 36, 38, 0.15);
+    overflow: hidden;
+}
+
+.cp.input-data > .__wrapper-input > .__wrapper-controllers > .__load,
+.cp.input-data > .__wrapper-input > .__wrapper-controllers > .__close {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: inherit;
+    height: inherit;
+}
+
+.cp.input-data > .__wrapper-input > .__wrapper-controllers > .__load {
+    background: url(./015435.svg);
+    background-size: 40px;
+    background-repeat: no-repeat;
+    background-position: -7px -0.5px;
+}
+
+.cp.input-data > .__wrapper-input > .__wrapper-controllers > .__close {
+    padding: 0 0 0 8px;
+    line-height:  41px;
+    font-size: 1.2em;
+    cursor: pointer;
+    color: rgba(34, 36, 38, 0.70);
+}
+
+.cp.input-data > .__result {
+    width: inherit;
+    max-height: 316px;
+    margin: 15px 0 0 0;
+    border-radius: 5px;
+    box-shadow: rgba(9, 30, 66, 0.25) 0px 4px 8px -2px, rgba(9, 30, 66, 0.08) 0px 0px 0px 1px;
+    background: #ffffff;
+    overflow-y: auto;
+}
+
+.cp.input-data > .__result > .__wrapper-result > .__list {
+    width: 100%;
+    padding: 20px 25px 20px 25px;
+    border-bottom: 1px solid rgba(34, 36, 38, 0.07);
+    cursor: pointer;
+    display: table;
+}
+
+.cp.input-data > .__result > .__wrapper-result > .__list > .__avatar {
+    width: 38px;
+    height: 38px;
+    background: #1e5ac3;
+    border-radius: 5px;
+    margin: 0 15px 0 0;
+    line-height: 38px;
+    text-align: center;
+    color: #ffffff;
+    font-weight: bold;
+    letter-spacing: 0.1em;
+    font-size: 0.8em;
+}
+
+.cp.input-data > .__result > .__wrapper-result > .__list > .__avatar,
+.cp.input-data > .__result > .__wrapper-result > .__list > .__wrapper_data { float: left; }
+
+.cp.input-data > .__result > .__wrapper-result > .__list:hover { background: rgba(34, 36, 38, 0.01); }
+
+.cp.input-data > .__result > .__wrapper-result > .__list > .__wrapper_data > .__title { 
+    margin: 0 0 10px 0; 
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 0.75em;
+    letter-spacing: 0.11em;
+    color: rgba(34, 36, 38, 0.70);
+}
+
+.cp.input-data > .__result > .__wrapper-result > .__list > .__wrapper_data > .__data { color: rgba(34, 36, 38, 0.95); }
+
+.cp.input-data > .__result > .__without-result {
+    padding: 20px 25px 20px 25px;   
+    line-height: 1.4em;
+    letter-spacing: 0.01em;
+    background: rgba(34, 36, 38, 0.02);
+    font-weight: 600;
+    font-size: 0.85em;
+}
+
+.cp.input-data > .__result > .__extra {
+    background: rgba(16, 44, 73, 0.045);
+    padding: 20px 25px 20px 25px;
+    box-shadow: inset -1px -10px 15px -10px rgba(0,0,0,0.08)
+
+}
+
+.cp.input-data > .__wrapper-input > .__read-only-input {
+    position: absolute;
+    width: inherit;
+    height: inherit;
+    display: table;
+    background: #ffffff;
+    z-index: 1;
+}
+
+.cp.input-data > .__wrapper-input > .__read-only-input > input[type="text"] {
+    width: calc(100% - 35px);
+    height: inherit;
+    padding: 0 10px 0 16px;
+    color: rgba(0, 0, 0, 0.87);
+    border-top: 1px solid rgba(34, 36, 38, 0.15);
+    border-bottom: 1px solid rgba(34, 36, 38, 0.15);
+    border-right: none;
+    border-left: 1px solid rgba(34, 36, 38, 0.15);
+    border-top-left-radius: 0.28571429rem;
+    border-bottom-left-radius: 0.28571429rem;
+}
+
+.cp.input-data > .__wrapper-input > .__read-only-input > input[type="text"], 
+.cp.input-data > .__wrapper-input > .__read-only-input > .__wrapper { float: left; }
+
+.cp.input-data > .__wrapper-input > .__read-only-input > .__wrapper { 
+    width: 35px;
+    height: inherit;
+    border-top: 1px solid rgba(34, 36, 38, 0.15);
+    border-bottom: 1px solid rgba(34, 36, 38, 0.15);
+    border-right: 1px solid rgba(34, 36, 38, 0.15);
+    border-top-right-radius: 0.28571429rem;
+    border-bottom-right-radius: 0.28571429rem;
+}
+
+.cp.input-data > .__wrapper-input > .__read-only-input > .__wrapper > .__close {
+    width: inherit;
+    height: inherit;
+    padding: 0 0 0 8px;
+    line-height:  41px;
+    font-size: 1.2em;
+    color: rgba(34, 36, 38, 0.70);
+    cursor: pointer;
+}

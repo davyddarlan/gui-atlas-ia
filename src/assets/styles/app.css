@@ -1,0 +1,114 @@
+@import url(./fonts.css);
+@import url(./reset.css);
+@import url(./fontawesome/css/all.min.css);
+
+* { box-sizing: border-box; }
+
+html, body { 
+    width: 100%;
+    height: 100%;
+}
+
+body { 
+    font-family: 'Open Sans'; 
+    overflow: hidden;
+}
+
+#app {
+    width: 100%;
+    height: 100%;
+    background: rgb(255,126,54);
+    background: linear-gradient(180deg, rgba(255,126,54,1) 0%, rgba(242,176,126,1) 11%, rgba(244,207,147,1) 26%, rgba(153,208,209,1) 55%, rgba(106,152,185,0.8393732492997199) 80%, rgba(70,91,158,0.8393732492997199) 100%);
+}
+
+/* config modal */
+
+.ui.dimmer { background: rgba(76, 76, 76, 0.15); }
+
+.ui.modal .header { color: #4e4e4e; }
+
+.ui.form label { color: #4e4e4e !important; }
+
+/* config buttons */
+
+.ui.button.primary { background: #1ec376 !important; }
+
+.ui.button.primary:hover { background: #0dda7a !important; }
+
+.ui.button.secondery { 
+    background: #c31e1e !important; 
+    color: #ffffff;
+}
+
+.ui.button.secondery:hover { background: #d41212 !important;  }
+
+/* link */
+
+.ui.link {
+    text-decoration: none;
+    color: #1e5ac3;
+}
+
+.ui.link:hover { border-bottom: 1px solid #1e5ac3; }
+
+/* scroll */
+
+*::-webkit-scrollbar {  width: 12px; }
+
+*::-webkit-scrollbar-track { background: #eeeeee; }   
+
+*::-webkit-scrollbar-thumb {
+    background-color: #9e9e9e;  
+    border-radius: 20px;     
+    border: 3px solid #eeeeee; 
+}
+
+/* tooltip */
+
+.ui.popup {
+    padding: 5px;
+    background: #fbfbfb;
+}
+
+.ui.bottom.right.popup:before {
+    background: #fbfbfb;
+}
+
+.menu-tooltip li {
+    cursor: pointer;
+    background: #fbfbfb;
+    padding: 5px 15px 5px 15px;
+    border-radius: 10px;
+    color: #464646;
+    font-size: 0.9em;
+}
+
+/* saearch */
+
+.ui.search > .results { width: 100%; }
+
+/* toast */
+
+.error-toast,
+.success-toast {
+    padding: 20px !important;
+    border: 1px solid #d41212;
+    background: #f5e0e0 !important;
+}
+
+.success-toast {
+    border-color: #12d469;
+    background: #e0f5e1 !important;
+}
+
+.error-toast .ui.header,
+.success-toast .ui.header { margin-bottom: 10px !important; }
+
+/* responsividade */
+
+@media screen and (max-width: 670px){
+    /*#app {
+        background: rgb(255,126,54);
+        background: linear-gradient(90deg, rgba(255,126,54,1) 0%, rgba(242,176,126,1) 11%, rgba(244,207,147,1) 26%, rgba(153,208,209,1) 55%, rgba(106,152,185,0.8393732492997199) 80%, rgba(70,91,158,0.8393732492997199) 100%);
+    }*/
+}

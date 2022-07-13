@@ -1,0 +1,262 @@
+.index-page {
+    width: 100%;
+    height: 100%;
+}
+
+/* menu */
+
+.index-page .index.head {
+    width: 100%;
+    padding: 60px 60px 0 60px;
+    display: table;
+}
+
+.index-head.menu { 
+    float: right; 
+    height: 40px;
+}
+
+.index-head.menu-item { 
+    float: left;
+    margin: 0 10px 0 0;
+}
+
+.index-head.menu-item:last-child { margin: 0; }
+
+.index-head.menu-button { 
+    display: inline-block;
+    background: #1e5ac3;
+    color: #ffffff;
+    text-decoration: none;
+    height: 40px;
+    font-size: 0.9em;
+    border-radius: 5px;
+    line-height: 40px;
+    padding: 0 20px 0 20px;
+}
+
+.index-head.menu .index-head.menu-item:nth-child(2) .menu-button { background: #9e9e9e; }
+
+/* fim menu */
+
+.index-page .index.body {
+    width: 100%;
+    height: calc(100% - 100px);
+}
+
+.index-body.banner {
+    padding: 120px 0 0 0;
+}
+
+.index-body.banner-brand {
+    font-family: "Sorts Mill Goudy";
+    font-size: 5em;
+    /*color: #c3c3c3;*/
+    color: #ffffff;
+    text-align: center;
+}
+
+.index-body.banner-search {
+    max-width: 700px;
+    margin: 30px auto 0 auto;
+}
+
+/* slide */
+
+.index-body.splide {
+    max-width: 700px;
+    margin: 30px auto 0 auto;
+}
+
+.index-body.splide .splide__slide {
+    height: 200px;
+    margin: 0 10px 0 0;
+    background: #1e5ac3;
+    border-radius: 5px;
+    text-align: center;
+    line-height: 200px;
+    font-variant: bold;
+    color: #ffffff;
+    cursor: pointer;
+}
+
+.index-body.splide .splide__slide span {
+    display: inline-block;
+    width: 150px;
+    font-weight: bold;
+    text-shadow: 0 0 0 rgba(0,0,0,0.5);
+}
+
+.index-body.splide .splide__slide:nth-child(1) {
+    background: url('../../assets/images/arte_1.jpg');
+    background-size: cover;
+}
+
+.index-body.splide .splide__slide:nth-child(2) {
+    background: url('../../assets/images/arte_2.jpg');
+    background-size: cover;
+}
+
+.index-body.splide .splide__slide:nth-child(3) {
+    background: url('../../assets/images/arte_3.jpg');
+    background-size: cover;
+}
+
+.index-body.splide .splide__slide:nth-child(4) {
+    background: url('../../assets/images/arte_4.jpg');
+    background-size: cover;
+}
+
+.index-body.splide .splide__slide:nth-child(5) {
+    background: url('../../assets/images/arte_5.jpg');
+    background-size: cover;
+}
+
+/** dropdown **/
+
+.__dropdown-menu { position: relative; }
+
+.__dropdown-menu:hover > .__options { visibility: visible; }
+
+.__dropdown-menu > .__profile { padding-bottom: 10px; }
+
+.__dropdown-menu > .__profile >.__title { 
+    display: table; 
+    background: #1e5ac3;
+    border-radius: 5px;
+    line-height: 40px;
+    color: #ffffff;
+    overflow: hidden;
+    /*margin: 0 0 10px 0;*/
+    cursor: pointer;
+}
+
+.__dropdown-menu > .__profile >.__title:hover { background: #306ace; }
+
+.__dropdown-menu > .__profile > .__title > .__avatar {
+    width: 40px;
+    height: 40px;
+    margin-right: 15px;
+}
+
+.__dropdown-menu > .__profile > .__title > .__avatar img {
+    float: left;
+    max-width: 100%;
+    height: auto;
+}
+
+.__dropdown-menu > .__profile > .__title > .__avatar,
+.__dropdown-menu > .__profile > .__title > .__username { float: left; }
+
+.__dropdown-menu > .__profile > .__title > .__username { 
+    font-size: 0.8em; 
+    margin-right: 15px;
+}
+
+.__dropdown-menu > .__options {
+    width: 120%;
+    position: absolute;
+    left: -30px;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    border-radius: 5px;
+    padding: 5px 0 5px 0;
+    visibility: hidden;
+    background: #ffffff;
+}
+
+.__dropdown-menu > .__options > .__option {
+    padding: 10px 20px 10px 20px;
+    font-size: 0.85em;
+    cursor: pointer;
+}
+
+.__dropdown-menu > .__options > .__option > i { padding-right: 10px; }
+
+.__dropdown-menu > .__options > .__option:hover { background:rgba(0, 0, 0, 0.03) }
+
+/* box-itens */
+
+.__box-itens > .__facede-box {
+    position: relative;
+    width: 40px;
+    height: 40px;
+    background:#9e9e9e;
+    border-radius: 5px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.__box-itens > .__facede-box:hover { background: #a5a3a3; }
+
+.__box-itens > .__space { padding-bottom: 10px; }
+
+.__box-itens > .__facede-box > .__counter-itens {
+    position: absolute;
+    top: -8px;
+    right: 5px;
+    width: 17px;
+    height: 17px;
+    font-size: 0.65em;
+    color: #ffffff;
+    background: red;
+    text-align: center;
+    line-height: 17px;
+    border-radius: 5px;
+}
+
+.__box-itens > .__facede-box > i { 
+    color: #ffffff;
+    line-height: 40px;
+}
+
+.__box-itens:hover > .__wrapper-results { visibility: visible; }
+
+.__box-itens > .__wrapper-results {
+    position: absolute;
+    width: 180px;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    border-radius: 5px;
+    padding: 0 0 0 0;
+    background: #ffffff;
+    visibility: hidden;
+}
+
+.__box-itens > .__wrapper-results > .__without-data {
+    padding: 15px 20px 15px 20px;
+    font-size: 0.9em;
+    text-align: center;
+    line-height: 1.2em;
+    font-weight: bold;
+}
+
+.__box-itens > .__wrapper-results > .__with-data { font-size: 0.9em; }
+
+.__box-itens > .__wrapper-results > .__with-data > .__list {
+    max-height: 103.41px;
+    overflow-y: auto;
+}
+
+.__box-itens > .__wrapper-results > .__with-data > .__title { 
+    padding: 15px 16px 15px 16px;
+    font-weight: bold;
+    font-size: 0.9em;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.__box-itens > .__wrapper-results > .__with-data > .__list > .__item {
+    padding: 10px 20px 10px 20px;
+    font-size: 0.85em;
+    cursor: pointer; 
+}
+
+.__box-itens > .__wrapper-results > .__with-data > .__list > .__item > span {
+    display: inline-block;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    width: 100px;
+}
+
+.__box-itens > .__wrapper-results > .__with-data > .__list > .__item > i { float: right; }
+
+.__box-itens > .__wrapper-results > .__with-data > .__list > .__item:hover { background:rgba(0, 0, 0, 0.03) }

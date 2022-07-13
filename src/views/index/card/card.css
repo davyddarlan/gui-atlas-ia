@@ -1,0 +1,245 @@
+.app.sub-pagina.__sub-pagina {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    width: 100%;
+    height: calc(100% - 7px);
+    background: #ffffff;
+    border-radius: 10px;
+}
+
+.app.sub-pagina.__sub-pagina > .__head {
+    width: 100%;
+    height: 50px;
+    background: #fbfbfb;
+    border-bottom: 1px solid #ececec;
+}
+
+.app.sub-pagina.__sub-pagina > .__body {
+    position: relative;
+    width: 100%;
+    height: calc(100% - 58px);
+    /*overflow: auto;*/
+}
+
+.app.sub-pagina.__sub-pagina > .__head button,
+.app.sub-pagina.__sub-pagina > .__head p { float: left; }
+
+.app.sub-pagina.__sub-pagina > .__head button {
+    border: none;
+    background: #464646;
+    color: #ffffff;
+    width: 80px;
+    height: 30px;
+    margin: 10px 0 0 20px;
+    border-radius: 50px;
+    cursor: pointer;
+    line-height: -25px;
+}
+
+.app.sub-pagina.__sub-pagina > .__head button :nth-child(1) { color: #ffffff; }
+
+.app.sub-pagina.__sub-pagina > .__head p {
+    width: calc(100% - (80px + 20px));
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    line-height: 50px;
+    padding: 0 20px 0 15px;
+    font-weight: bold;
+    font-size: 0.8em;
+}
+
+.app.card > .__art,
+.app.card > .__art > .__default,
+.app.card > .__art > .__load,
+.app.card > .__art > .__without-art {
+    position: relative;
+    width: 100%;
+    height: 180px;
+    margin-bottom: 30px;
+    background: #f1f1f1;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.app.card > .__art > .__default,
+.app.card > .__art > .__load,
+.app.card > .__art > .__without-art {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.app.card > .__art > .__without-art {
+    background: #e7fdf4;
+}
+
+.app.card > .__art > .__without-art > .__text {
+    text-align: center;
+    line-height: 1.4em;
+    font-weight: bold;
+}
+
+.app.card > .__art > .__load .__text { margin-top: 20px; }
+
+.app.card > .__art > .__default > label {
+    background: #1ec376;
+    font-family: 'Lato', 'Helvetica Neue', Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    cursor: pointer;
+    padding: 0.78571429em 1.5em 0.78571429em;
+    font-size: 0.85714286rem;
+    border-radius: 5px;
+    color: #ffffff;
+    border: none;
+}
+
+.app.card > .__art > .__default > input[type="file"] { display: none; }
+
+.app.card > .__content {
+    position: relative;
+    width: 100%;
+    height: calc(560px - (180px + 40px + 30px));
+    font-size: 1em;
+}
+
+.app.card.__content > .__nome-popular,
+.app.card.__content > .__nome-cientifico {
+    text-align: center;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.app.card.__content > .__nome-cientifico {
+    margin-bottom: 20px; 
+    font-style: italic; 
+}
+
+.app.card.__content > .__decricao {
+    margin: 0 auto;
+    max-width: 250px;
+    text-align: center;
+    line-height: 1.4em;
+    font-size: 1em;
+}
+
+.app.card.__content > .__menu { margin: 0 0 25px 0; }
+
+.app.card.__content > .__menu .splide__slide div {
+    width: 40px;
+    height: 40px;
+    border-radius: 50px;
+    cursor: pointer;
+}
+
+.app.card.__content > .__menu .splide__slide .__perfil {
+    background: url(../../../assets/images/545421.png);
+    background-size: 40px;
+}
+
+.app.card.__content > .__menu .splide__slide .__artigos-cientificos {
+    background: url(../../../assets/images/151585.png);
+    background-size: 40px;
+}
+
+.app.card.__content > .__menu .splide__slide .__localizacao {
+    background: url(../../../assets/images/445421.png);
+    background-size: 40px;
+}
+
+.app.card.__content > .__menu .splide__slide .__cladograma {
+    background: url(../../../assets/images/778871.png);
+    background-size: 40px;
+}
+
+.app.card.__content > .__menu .splide__slide .__cladograma {
+    background: url(../../../assets/images/778871.png);
+    background-size: 40px;
+}
+
+.app.card.__content > .__menu .splide__slide .__midia {
+    background: url(../../../assets/images/545646.png);
+    background-size: 40px;
+}
+
+.app.card.__content > .__menu .splide__arrow.splide__arrow--prev,
+.app.card.__content > .__menu .splide__arrow.splide__arrow--next {
+    width: 30px;
+    height: 30px;
+    background: #000000;
+    margin: 0 -10px 0 -10px;
+}
+
+.app.card.__content > .__menu .splide__arrow.splide__arrow--prev i,
+.app.card.__content > .__menu .splide__arrow.splide__arrow--next i { color: #ffffff; }
+
+.app.card.__content > .__menu .splide__track { 
+    width: 260px; 
+    margin: 0 0 0 26px;
+}
+
+.app.card.__content > .__edit-button {
+    position: absolute;
+    bottom: 0;
+}
+
+/* load */
+
+.app.__load,
+.app.__lock {
+    position: absolute;
+    z-index: 5;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 98%;
+    background: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.app.__lock { 
+    background: rgba(255, 255, 255, 0.7); 
+    left: 5px;
+    width: 320px;
+}
+
+.app.__lock > .__art {
+    width: 200px;
+    height: 200px;
+    background: url('../../../assets/images/121255.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    margin-bottom: 5px;
+}
+
+.app.__lock > p {
+    font-size: 1.4em;
+    font-weight: bold;
+}
+
+.app.__lock > .__wrapper-buttons > .__button {
+    display: inline-block;
+    margin: 0 auto;
+    margin-top: 20px;
+    padding: 8px 20px 8px 20px;
+    border-radius: 20px;
+    color: #ffffff;
+    border: none;
+    font-size: 0.85em;
+}
+
+.app.__lock > .__wrapper-buttons > .__button.primary { background: #1ec376; }
+
+.app.__lock > .__wrapper-buttons > .__button.secondary { background: #c31e1e; }
+
+.app.__load div:nth-child(2) {
+    margin-top: 20px;
+    font-size: 0.9em;
+}

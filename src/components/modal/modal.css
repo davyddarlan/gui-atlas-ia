@@ -1,0 +1,95 @@
+.cp.modal {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    width: 100%;
+    height: 100%;
+}
+
+.cp.modal > .__dimmer {
+    display: flex;
+    justify-content: center;
+    align-items: baseline;
+    width: inherit;
+    height: inherit;
+    background: rgba(76, 76, 76, 0.15);
+    overflow-y: auto;
+}
+
+.cp.modal > .__dimmer > .__modal {
+    margin: 60px 25px 60px 25px;
+    width: 540px;
+    border-radius: 10px;
+    background: #ffffff;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+}
+
+.cp.modal > .__dimmer > .__modal.mini { width: 420px; }
+
+.cp.modal > .__dimmer > .__modal > .__wrapper { 
+    width: 100%;
+    display: table; 
+    margin: 0 0 30px 0;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #ececec;
+}
+
+.cp.modal > .__dimmer > .__modal > .__wrapper > .__close-button {
+    background: #f5f5f5;
+    text-align: center;
+    width: 35px;
+    height: 35px;
+    border-radius: 5px;
+    margin: 15px 15px 0 0;
+    float: right;
+    cursor: pointer;
+}
+
+.cp.modal > .__dimmer > .__modal > .__wrapper > .__close-button i { 
+    font-size: 1.4em;
+    line-height: 35px;
+    color: #424242;
+}
+
+.cp.modal > .__dimmer > .__modal > .__wrapper > .__title {
+    float: left;
+    width: calc(100% - (40px + 15px));
+    padding: 30px 20px 0 40px;
+    font-size: 1.35em;
+    font-weight: bold;
+    line-height: 1.4em;
+    color: #424242;
+}
+
+.cp.modal > .__dimmer > .__modal > .__body {
+    width: calc(100% - 50px);
+    margin: 0 30px 30px 25px;
+}
+
+.cp.modal > .__dimmer > .__modal > .__footer {
+    width: 100%;
+    padding: 20px 10px 20px 25px;
+    background: #f5f5f5;
+    display: table;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+.cp.modal > .__dimmer > .__modal > .__footer > * {
+    float: right;
+    margin: 0 15px 0 0;
+}
+
+/* transition */
+
+.__cp-modal-enter-active,  .__cp-modal-leave-active { transition: opacity .3s; }
+
+.__cp-modal-enter, .__cp-modal-leave-to { opacity: 0; }
+
+.__cp-modal-box-enter-active,  .__cp-modal-box-leave-active { transition: opacity .3s, transform .3s; }
+
+.__cp-modal-box-enter, .__cp-modal-box-leave-to { 
+    opacity: 0; 
+    transform: translateY(-20px);
+}
