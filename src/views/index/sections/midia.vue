@@ -1,9 +1,10 @@
 <template>
     <div class="app midia-conteudo">
-        <midia-modal :show="modals.midia" v-on:close="modals.midia = false" :url="urlModal" :dados="midias[idMidia]"></midia-modal>
+        <showMidia :show="modals.midia" v-on:close="modals.midia = false" :url="urlModal" :dados="midias[idMidia]"></showMidia>
         <editar-midia-modal v-on:put="editarDadosMidia" :show="modals.editarMidia" 
             v-on:close="modals.editarMidia = false" :url="urlModal" 
             :id="idMidia" :dados="midias[idMidia]"></editar-midia-modal>
+        <marcadorImagemModal :id="idResource" :show="modals.marcador" v-on:close="modals.marcador = false"></marcadorImagemModal>
         <modal  :show="modals.apagarMidia" v-on:close="modals.apagarMidia = false" close-button>
             <template v-slot:title>
                 <p>Apagar mídia</p>
@@ -49,6 +50,7 @@
                             <li v-on:click="abrirMidia(midia, index)">Abrir</li>
                             <li v-on:click="editarMidia(midia, index)" v-show="adminRole">Editar dados</li>
                             <li v-on:click="apagarMidia(midia, index)" v-show="adminRole">Apagar mídia</li>
+                            <li v-on:click="adicionarMarcador(midia)" v-show="adminRole">Marcadores</li>
                         </ul>
                     </div>
                     <i v-bind:class="{'fa-file-audio': getType(index) == 'mp3', 
@@ -70,15 +72,17 @@
 </template>
 
 <script>    
-    import MidiaModal from '../modals/midia.vue';
+    import ShowMidia from '../modals/midia.vue';
     import EditarMidiaModal from '../modals/editar-midia.vue';
     import Modal from '../../../components/modal/modal.vue';
     import RolesMixin from '../../../mixins/roles';
+    import MarcadorImagemModal from '../modals/marcador-imagem.vue';
 
     export default {
         components: {
-            'midiaModal': MidiaModal,
+            'showMidia': ShowMidia,
             'editarMidiaModal': EditarMidiaModal,
+            'marcadorImagemModal': MarcadorImagemModal,
             'modal': Modal,
         },
         props: {
@@ -95,9 +99,11 @@
                     midia: false,
                     editarMidia: false,
                     apagarMidia: false,
+                    marcador: false,
                 },
                 urlModal: null,
                 idMidia: null,
+                idResource: null,
             }
         },
         mounted: function() {
@@ -124,6 +130,7 @@
                             url: data.nome,
                             titulo: data.titulo,
                             descricao: data.descricao,
+                            id: data.id,
                         });
                     });
 
@@ -189,6 +196,10 @@
                 this.modals.apagarMidia = true;
                 this.urlModal = midia.url;
                 this.idMidia = index;
+            },
+            adicionarMarcador: function(midia) {
+                this.modals.marcador = true;
+                this.idResource = midia.id;
             },
             editarDadosMidia: function(dados) {
                 this.midias[dados.id].titulo = dados.titulo;
