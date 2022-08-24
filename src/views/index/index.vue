@@ -6,6 +6,35 @@
                 :uuid="card.uuid" v-on:login="modals.login = true"></card>
         </template>
         <div class="index head">
+            <div class="__dropdown-menu first" v-show="showElements">
+                <div class="__profile">
+                    <div class="__title">
+                        <div class="__avatar">
+                            <img src="../../assets/images/454541.png" />
+                        </div>
+                        <div class="__username">{{ $store.state.user.primeiroNome }}</div>
+                    </div>
+                </div>
+                <ul class="__options">
+                    <li class="__option" v-on:click="openUserModal('perfil')">
+                        <i class="fa-solid fa-user"></i>
+                        Editar perfil
+                    </li>
+                    <li class="__option" v-on:click="openUserModal('senha')">
+                        <i class="fa-solid fa-key"></i>
+                        Alterar senha
+                    </li>
+                    <!--<li class="__option" v-on:click="openUserModal('token')">
+                        <i class="fa-solid fa-passport"></i>
+                        Tokens
+                    </li>-->
+                    <li class="__option" v-on:click="logout">
+                        <i class="fa-solid fa-arrow-right-from-bracket"></i>
+                        Sair
+                    </li>
+                </ul>
+            </div>
+            <a v-on:click="modals.login = true" href="#" class="index-head menu-button first" v-show="!showElements">Autentique-se</a>
             <ul class="index-head menu">
                 <li class="index-head menu-item">
                     <div class="__box-itens">
@@ -87,6 +116,7 @@
         <ativacao-conta-modal v-on:close="modals.ativacaoConta = false" :show="modals.ativacaoConta" :token="$route.query.ativar_conta"></ativacao-conta-modal>
         <alteracao-senha-modal v-on:close="modals.esqueciSenha = false" :show="modals.esqueciSenha" :token="$route.query.esqueci_senha"></alteracao-senha-modal>
         <portal-target name="body" multiple></portal-target>
+        <portal-target name="sidebar"></portal-target>
     </div>
 </template>
 

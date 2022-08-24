@@ -13,7 +13,19 @@
                         </div>
                         <div class="__content" v-show="load">
                             <div v-if="tipo == 'imagem'">
-                                <img v-bind:src="fullPath" class="__format" ref="imagem" />
+                                <div class="__imagem-cover">
+                                    <div class="__cover">
+                                        <div class="__info" v-on:click="modals.showInfo = true">
+                                            <i class="fa-solid fa-info"></i>
+                                        </div>
+                                        <div class="__description">
+                                            <h1 v-if="dados.titulo">{{ dados.titulo }}</h1>
+                                            <h1 v-if="!dados.titulo">{{ dados.nomeCientifico }}</h1>
+                                            <p v-if="dados.descricao">{{ dados.descricao }}</p>
+                                        </div>
+                                    </div>
+                                    <img v-bind:src="fullPath" class="__format" ref="imagem" />
+                                </div>
                             </div>
                             <div v-if="tipo == 'video'">
                                 <video controls class="__format" ref="video">
@@ -30,6 +42,7 @@
                 </transition>
             </div>
         </div>
+        <side-bar :id="dados.id" :show-side-bar="modals.showInfo" @close-side-bar="modals.showInfo = false"></side-bar>
     </portal>
 </template>
 

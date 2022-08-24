@@ -50,7 +50,7 @@
                             <li v-on:click="abrirMidia(midia, index)">Abrir</li>
                             <li v-on:click="editarMidia(midia, index)" v-show="adminRole">Editar dados</li>
                             <li v-on:click="apagarMidia(midia, index)" v-show="adminRole">Apagar mídia</li>
-                            <li v-on:click="adicionarMarcador(midia)" v-show="adminRole">Marcadores</li>
+                            <li v-on:click="adicionarMarcador(midia)" v-show="adminRole" v-if="getType(index) == 'jpeg'">Marcadores</li>
                         </ul>
                     </div>
                     <i v-bind:class="{'fa-file-audio': getType(index) == 'mp3', 
@@ -87,6 +87,10 @@
         },
         props: {
             uuid: {
+                type: String,
+                default: null,
+            },
+            nomeCientifico: {
                 type: String,
                 default: null,
             }
@@ -131,6 +135,7 @@
                             titulo: data.titulo,
                             descricao: data.descricao,
                             id: data.id,
+                            nomeCientifico: this.nomeCientifico,
                         });
                     });
 

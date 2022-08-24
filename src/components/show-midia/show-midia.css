@@ -107,17 +107,50 @@
 
 .cp.show-midia .__marcadores * { margin: 5px; }
 
-/*.cp.show-midia > .__dimmer > .__midia > .__content .__titulo {
-    font-size: 1.2em;
-    font-weight: bold;
-    margin-bottom: 20px;
+.cp.show-midia .__imagem-cover {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    border-radius: 5px;
 }
 
-.cp.show-midia > .__dimmer > .__midia > .__content .__descricao { 
-    margin-top: 20px;
-    font-size: 1em;
-    line-height: 1.3em;
-}*/
+.cp.show-midia .__imagem-cover > .__cover {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: all 0.1s;
+    visibility: hidden;
+}
+
+.cp.show-midia .__imagem-cover:hover > .__cover {
+    box-shadow: -142px -130px 149px -106px rgba(0,0,0,0.75) inset;
+    -webkit-box-shadow: -142px -130px 149px -106px rgba(0,0,0,0.75) inset;
+    -moz-box-shadow: -142px -130px 149px -106px rgba(0,0,0,0.75) inset;
+    opacity: 1;
+    visibility: visible;
+}
+
+.cp.show-midia .__imagem-cover > .__cover > .__description {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    padding: 0 30px 30px 30px;
+}
+
+.cp.show-midia .__imagem-cover > .__cover > .__description h1 { 
+    font-size: 1.6em;
+    font-weight: bold;
+}
+
+.cp.show-midia .__imagem-cover > .__cover > .__description h1, 
+.cp.show-midia .__imagem-cover > .__cover > .__description p { 
+    color: #ffffff; 
+    margin-top: 10px;
+}
+
+.cp.show-midia .__imagem-cover > .__cover > .__description p { line-height: 1.3em; }
 
 .cp.show-midia > .__dimmer > .__midia > .__load span { margin-top: 20px; }
 
@@ -126,3 +159,35 @@
 .__cp-show-midia-enter-active,  .__cp-show-midia-leave-active { transition: opacity .3s; }
 
 .__cp-show-midia-enter, .__cp-show-midia-leave-to { opacity: 0; }
+
+.cp.show-midia .__imagem-cover > .__cover > .__info {
+    margin: 20px 0 0 20px;
+    width: 35px;
+    height: 35px;
+    border-radius: 5px;
+    background: #f5f5f5;
+    cursor: pointer;
+    line-height: 35px;
+    text-align: center;
+}
+
+/* modal */
+
+.metadados-imagem .__table { width: 100%; }
+
+.metadados-imagem .__table tr,
+.metadados-imagem .__table td,
+.metadados-imagem .__table th {
+    border: 1px solid black;
+    padding: 12px 15px 12px 15px;
+}
+
+.metadados-imagem .__table td { font-size: 0.9em; }
+
+.metadados-imagem .__table th { 
+    font-size: 0.95em; 
+    font-weight: bold;
+    text-align: left;
+    padding: 20px 15px 20px 15px;
+    background: #f5f5f5;
+}

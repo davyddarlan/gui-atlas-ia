@@ -23,7 +23,7 @@
                     <p>{{ subpaginas.titulo }}</p>
                 </div>
                 <div class="__body">
-                    <component v-on:update="updateSections" v-on:loaded="loadCard = false" v-bind:is="subpaginas.conteudo" :uuid="uuid"></component>
+                    <component :nomeCientifico="card.nomeCientifico" v-on:update="updateSections" v-on:loaded="loadCard = false" v-bind:is="subpaginas.conteudo" :uuid="uuid"></component>
                 </div>
             </div>
             <compartilhar-card-modal :uuid="uuid" v-on:close="modals.compartilhar = false" :show="modals.compartilhar"></compartilhar-card-modal>

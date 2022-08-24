@@ -12,13 +12,13 @@ html, body {
 body { 
     font-family: 'Open Sans'; 
     overflow: hidden;
+    background: rgb(255,126,54);
+    background: linear-gradient(180deg, rgba(255,126,54,1) 0%, rgba(242,176,126,1) 11%, rgba(244,207,147,1) 26%, rgba(153,208,209,1) 55%, rgba(106,152,185,0.8393732492997199) 80%, rgba(70,91,158,0.8393732492997199) 100%);
 }
 
 #app {
     width: 100%;
     height: 100%;
-    background: rgb(255,126,54);
-    background: linear-gradient(180deg, rgba(255,126,54,1) 0%, rgba(242,176,126,1) 11%, rgba(244,207,147,1) 26%, rgba(153,208,209,1) 55%, rgba(106,152,185,0.8393732492997199) 80%, rgba(70,91,158,0.8393732492997199) 100%);
 }
 
 /* config modal */

@@ -1,4 +1,11 @@
+import Modal from '../modal/modal.vue';
+import SideBar from '../side-bar/side-bar.vue';
+
 export default {
+    components: {
+        'modal': Modal,
+        'side-bar': SideBar,
+    },
     props: {
         show: {
             type: Boolean,
@@ -9,8 +16,10 @@ export default {
             type: Object,
             default: function() {
                 return {
+                    id: null,
                     titulo: '',
                     descricao: '',
+                    nomeCientifico: '',
                 }
             }
         },
@@ -66,7 +75,7 @@ export default {
                                 this.scaleImage();
                             };
 
-                            this.resizeListener = window.addEventListener('resize', this.resizeListener, true);
+                            window.addEventListener('resize', this.resizeListener, true);
     
                             setTimeout(() => {
                                 this.load = true;
@@ -76,11 +85,14 @@ export default {
                 }).catch((error) => {
                     // error
                 });
+            } else {
+                window.removeEventListener('resize', this.resizeListener, true);
             }
         },
         dados: function(dados) {
             this.dados.titulo = dados.titulo;
             this.dados.descricao = dados.descricao;
+            this.dados.id = dados.id;
         },
     },
     data: function() {
@@ -89,6 +101,9 @@ export default {
             fullPath: null,
             load: false,
             resizeListener: null,
+            modals: {
+                showInfo: false,
+            }
         }
     },
     methods: {
