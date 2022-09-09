@@ -18,7 +18,6 @@
                 <div class="__head">
                     <button v-on:click="fecharSubpagina">
                         <i class="fa-solid fa-angle-left"></i>
-                        voltar
                     </button>
                     <p>{{ subpaginas.titulo }}</p>
                 </div>

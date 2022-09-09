@@ -16,6 +16,9 @@
                 </ul>
             </div>
             <div class="__conteudo">
+                <div class="__label" v-if="labelEstadoConservacao">
+                    <img :src="labelEstadoConservacao" />
+                </div>
                 <div class="__wrapper">
                     <p class="__titulo">Estado de conservação</p>
                     <p class="__conteudo">{{ output.estadoConservacao | semDado }}</p>
@@ -109,6 +112,16 @@
     import ListaDadosModal from '../modals/lista-dados.vue';
     import RolesMixin from '../../../mixins/roles';
 
+    // estados
+
+    import CR from '../../../assets/images/estados-conservacao/455445.png';
+    import EX from '../../../assets/images/estados-conservacao/545454.png';
+    import EW from '../../../assets/images/estados-conservacao/546464.png';
+    import LC from '../../../assets/images/estados-conservacao/554454.png';
+    import EN from '../../../assets/images/estados-conservacao/554455.png';
+    import VU from '../../../assets/images/estados-conservacao/787812.png';
+    import NT from '../../../assets/images/estados-conservacao/877754.png';
+
     export default {
         components: {
             'estadoConservacaoModal': EstadoConservacaoModal,
@@ -148,6 +161,37 @@
                     routeName: null,
                     title: '',
                 },
+                labelEstadoConservacao: null,
+            }
+        },
+        watch: {
+            'output.estadoConservacao': function(data) {
+                switch (data) {
+                    case 'Quase Ameaçada':
+                        this.labelEstadoConservacao = NT;
+                    break;
+                    case 'Vulnerável':
+                        this.labelEstadoConservacao = VU;
+                    break;
+                    case 'Em Perigo':
+                        this.labelEstadoConservacao = EN;
+                    break;
+                    case 'Em Perigo Crítico':
+                        this.labelEstadoConservacao = CR;
+                    break;
+                    case 'Possivelmente Extinta Na Natureza':
+                        this.labelEstadoConservacao = null;
+                    break;
+                    case 'Possivelmente Extinta':
+                        this.labelEstadoConservacao = null;
+                    break;
+                    case 'Extinta Na Natureza':
+                        this.labelEstadoConservacao =   EW;
+                    break;
+                    case 'Extinta':
+                        this.labelEstadoConservacao = EX;
+                    break;
+                }
             }
         },
         mounted: function() {
@@ -288,6 +332,18 @@
     .app.geral-conteudo > .__card > .__conteudo {
         width: 100%;
         padding: 20px 25px 20px 25px;
+    }
+
+    .app.geral-conteudo > .__card > .__conteudo > .__label {
+        width: 40px;
+        height: 40px;
+        margin-right: 10px; 
+        float: left;
+    }
+
+    .app.geral-conteudo > .__card > .__conteudo > .__label img {
+        max-width: 100%;
+        height: auto;
     }
 
     .app.geral-conteudo > .__card > .__conteudo > .__wrapper > .__titulo {

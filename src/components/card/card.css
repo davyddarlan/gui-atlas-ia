@@ -95,3 +95,10 @@
     height: auto;
     color: #575757;
 }
+
+@media only screen and (max-height: 640px) {
+    #card {
+        max-height: 500px;
+        min-height: 500px;
+    }
+} 

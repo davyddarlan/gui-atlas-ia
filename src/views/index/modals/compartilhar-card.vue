@@ -5,7 +5,7 @@
         </template>
         <template v-slot:body>
             <canvas class="__qr-code" ref="qrCode"></canvas>
-            <div class="ui action input">
+            <div class="ui fluid action input">
                 <input ref="inputLink" type="text" v-bind:value="url">
                 <button class="ui primary right labeled icon button" v-on:click="copiarLink">
                     <i class="copy icon"></i>

@@ -243,3 +243,28 @@
     margin-top: 20px;
     font-size: 0.9em;
 }
+
+@media only screen and (max-height: 640px) {
+    .app.card > .__art,
+    .app.card > .__art > .__default,
+    .app.card > .__art > .__load,
+    .app.card > .__art > .__without-art {
+        height: 150px;
+        margin-bottom: 15px;
+    }
+
+    .app.card > .__art { background-size: cover; }
+
+    .app.card.__content > .__decricao { font-size: 0.9em; }
+
+    .app.card.__content > .__nome-popular,
+    .app.card.__content > .__nome-cientifico { margin-bottom: 5px; }
+
+    .app.card.__content > .__nome-cientifico { margin-bottom: 15px; }
+
+    .app.card.__content > .__menu { margin: 0 0 15px 0; }
+
+    .app.card > .__content {
+        height: calc(560px - 313px);
+    }
+} 

@@ -8,6 +8,7 @@ import UserModal from './modals/user.vue';
 import Card from './card/card.vue';
 import Splide from '@splidejs/splide';
 import RolesMixin from '../../mixins/roles';
+import SideMenu from '../../components/side-menu/side-menu.vue';
 
 export default {
     components: {
@@ -19,6 +20,7 @@ export default {
         'alteracao-senha-modal': AlteracaoSenhaModal,
         'user-modal': UserModal,
         'ativacao-conta-modal': AtivacaoContaModal,
+        'side-menu': SideMenu,
     },
     data: function() {
         return {
@@ -33,6 +35,7 @@ export default {
             },
             showElements: false,
             sectionUserModal: '',
+            openSideMenu: false,
         }
     },
     mixins: [RolesMixin],
@@ -237,16 +240,22 @@ export default {
         },
         positionManager: function() {
             let x, y, overflowX, overflowY,
-                isLimitedX, isLimitedY;
+                isLimitedX, isLimitedY, MAX_HEIGHT;
 
-            const MAX_WIDTH = 330, MAX_HEIGHT = 600, 
+            const MAX_WIDTH = 330, 
                 LIMIT_POSITION = 20, PADDING = 20;
 
-            x = Math.floor(Math.random() * innerWidth);
-            y = Math.floor(Math.random() * innerHeight);
+            if (document.documentElement.clientHeight <= 640) {
+                MAX_HEIGHT = 500;
+            } else {
+                MAX_HEIGHT = 600;
+            }
 
-            overflowY = innerHeight - y;
-            overflowX = innerWidth - x;
+            x = Math.floor(Math.random() * document.documentElement.clientWidth);
+            y = Math.floor(Math.random() * document.documentElement.clientHeight);
+
+            overflowY = document.documentElement.clientHeight - y;
+            overflowX = document.documentElement.clientWidth - x;
             
             isLimitedX = MAX_WIDTH - overflowX;
             isLimitedY = MAX_HEIGHT - overflowY;
@@ -299,6 +308,33 @@ export default {
 
                 localStorage.removeItem('__token');
             }).catch((error) => {});
+        },
+        chooseItemMenu(item) {
+            switch (item) {
+                case 'adicionar espécie': 
+                    this.modals.criarEspecie = true;
+                break;
+                case 'editar perfil':
+                    this.openUserModal('perfil');
+                break;
+                case 'alterar senha':
+                    this.openUserModal('senha')
+                break;
+                case 'alterar tokens':
+                    this.openUserModal('token')
+                break;
+                case 'sair':
+                    this.logout();
+                break;
+                case 'acessar conta':
+                    this.modals.login = true;
+                break;
+                case 'criar conta':
+                    this.modals.criarConta = true;
+                break;
+            }
+
+            this.openSideMenu = false;
         }
     }
 }
