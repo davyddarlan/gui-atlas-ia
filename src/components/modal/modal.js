@@ -20,6 +20,10 @@ export default {
             type: Boolean,
             default: false,
         },
+        noPadding: {
+            type: Boolean,
+            default: false,
+        },
     },
     methods: {
         close: function() {

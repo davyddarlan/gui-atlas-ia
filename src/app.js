@@ -37,9 +37,6 @@ import 'fomantic-ui/dist/components/api.js';
 import 'fomantic-ui/dist/components/divider.css'; 
 import 'fomantic-ui/dist/components/card.css'; 
 
-import '@splidejs/splide/dist/js/splide.js';
-import '@splidejs/splide/dist/css/splide.min.css';
-
 /* style */
 import './assets/styles/app.css';
 

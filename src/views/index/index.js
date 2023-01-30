@@ -4,9 +4,9 @@ import CriacaoContaModal from './modals/criacao-conta.vue';
 import AutenticacaoModal from './modals/autenticacao.vue';
 import AlteracaoSenhaModal from './modals/alteracao-senha.vue';
 import AtivacaoContaModal from './modals/ativar-conta.vue';
+import SobreModal from './modals/sobre.vue';
 import UserModal from './modals/user.vue';
 import Card from './card/card.vue';
-import Splide from '@splidejs/splide';
 import RolesMixin from '../../mixins/roles';
 import SideMenu from '../../components/side-menu/side-menu.vue';
 
@@ -18,6 +18,7 @@ export default {
         'criacao-conta-modal': CriacaoContaModal,
         'autenticacao-modal': AutenticacaoModal,
         'alteracao-senha-modal': AlteracaoSenhaModal,
+        'sobre-modal': SobreModal,
         'user-modal': UserModal,
         'ativacao-conta-modal': AtivacaoContaModal,
         'side-menu': SideMenu,
@@ -32,6 +33,7 @@ export default {
                 user: false,
                 ativacaoConta: false,
                 esqueciSenha: false,
+                sobre: false,
             },
             showElements: false,
             sectionUserModal: '',
@@ -335,6 +337,12 @@ export default {
             }
 
             this.openSideMenu = false;
+        },
+        openCardAves: function(data) {
+            this.abrirCard({
+                uuid: data.uuid,
+                title: data.title,
+            });
         }
     }
 }

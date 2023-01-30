@@ -82,10 +82,10 @@ export default {
                 var x, y;
 
                 if (event.type == 'mousemove') {
-                    x = (event.clientX - this.cursorPosition.x - 100);
+                    x = (event.clientX - this.cursorPosition.x - 75);
                     y = (event.clientY - this.cursorPosition.y);
                 } else if (event.type == 'touchmove') {
-                    x = (event.touches[0].clientX - this.cursorPosition.x - 100);
+                    x = (event.touches[0].clientX - this.cursorPosition.x - 75);
                     y = (event.touches[0].clientY - this.cursorPosition.y);
                 }
 
@@ -104,7 +104,7 @@ export default {
                 this.cursorPosition.x = event.offsetX;
                 this.cursorPosition.y = event.offsetY; 
             } else if (event.type == 'touchstart') {
-                this.cursorPosition.x = event.touches[0].clientX - (this.position.x + 100);
+                this.cursorPosition.x = event.touches[0].clientX - (this.position.x + 75);
                 this.cursorPosition.y = event.touches[0].clientY - (this.position.y);
             }
         },

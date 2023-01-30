@@ -51,5 +51,8 @@ module.exports = {
           'vue$': 'vue/dist/vue.esm.js',
           'jquery$': 'jquery/dist/jquery.min.js',
         }
-    }
+    },
+    performance: {
+        hints: false,
+    },
 }

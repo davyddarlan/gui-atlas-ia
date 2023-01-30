@@ -25,7 +25,7 @@
                         <div class="__wrapper">
                             <p class="__subtitulo">Nome cietífico</p>
                             <p class="__titulo">{{ data.nome_cientifico | formatoCientifico }} ({{ data.nome_popular }})</p>
-                            <p class="__descricao" v-show="data.descricao">{{ data.descricao }}</p>
+                            <!--<p class="__descricao" v-show="data.descricao">{{ data.descricao }}</p>-->
                         </div>
                     </li>
                 </ul>

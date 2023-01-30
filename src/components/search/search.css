@@ -1,7 +1,7 @@
 .cp.search {
     position: relative;
     width: 100%;
-    height: 50px;
+    height: 40px;
 }
 
 .cp.search > .__wrapper { 
@@ -19,7 +19,7 @@
     font-size: 1.5em;
     color: #7c7979;
     text-align: center;
-    line-height: 50px; /* altura do componente */
+    line-height: 40px; /* altura do componente */
     background: #ffffff;
 }
 
@@ -64,7 +64,7 @@
 .cp.search > .__wrapper > .__wrapper > .__btn-close { 
     padding-left: 6px;
     font-size: 1.4em;
-    line-height: 50px; /* altura do componente */
+    line-height: 40px; /* altura do componente */
     cursor: pointer;
 }
 
@@ -142,7 +142,7 @@
 .cp.search > .__results > ul > li > .__wrapper .__titulo {
     font-weight: bold;
     letter-spacing: 0.05em;
-    font-size: 1em;
+    font-size: 0.95em;
 }
 
 .cp.search > .__results > ul > li > .__wrapper .__subtitulo {
@@ -167,3 +167,17 @@
     opacity: 0;
     transform: translateY(-20px);
 }
+
+@media only screen and (max-height: 720px) {
+    .cp.search > .__results { max-height:  149.84px; }
+
+    .cp.search > .__results > ul > li { padding: 20px 30px 20px 30px; }
+
+    .cp.search > .__results > ul > li > .__avatar { display: none; }
+    
+    .cp.search > .__results > ul > li > .__wrapper { width: 100%; }
+
+    .cp.search > .__results > ul > li > .__wrapper .__titulo { font-size: 0.9em; }
+    
+    .cp.search > .__results > ul > li > .__wrapper .__subtitulo { font-size: 0.72em; }
+} 

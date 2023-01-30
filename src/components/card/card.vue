@@ -8,6 +8,9 @@
             <div class="title" ref="bar">
                 <span>{{ title | nomeCientifico }}</span>
             </div>
+            <div class="extra">
+                <slot name="extra"></slot>
+            </div>
         </div>
         <div class="card content">
             <slot name="content"></slot>

@@ -51,6 +51,23 @@
     font-size: 0.8em;
 }
 
+.app.card > .__art > .__art > .__remove-art-botton {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    width: 30px;
+    height: 30px;
+    border-radius: 5px;
+    background: #dc0000;
+    line-height: 30px;
+    text-align: center;
+    font-size: 0.9em;
+    color: #ffffff;
+    cursor: pointer;
+}
+
+.app.card > .__art > .__art > .__remove-art-botton i { color: #ffffff; }
+
 .app.card > .__art,
 .app.card > .__art > .__default,
 .app.card > .__art > .__load,
@@ -124,43 +141,54 @@
     text-align: center;
     line-height: 1.4em;
     font-size: 1em;
+    max-height: 140px;
+    overflow: auto;
 }
 
-.app.card.__content > .__menu { margin: 0 0 25px 0; }
+.app.card.__content > .__menu { 
+    display: flex;
+    justify-content: center;
+    margin: 0 0 25px 0; 
+}
 
-.app.card.__content > .__menu .splide__slide div {
+.app.card.__content > .__menu li { 
+    display: inline-block; 
+    padding-right: 10px;
+}
+
+.app.card.__content > .__menu div {
     width: 40px;
     height: 40px;
     border-radius: 50px;
     cursor: pointer;
 }
 
-.app.card.__content > .__menu .splide__slide .__perfil {
+.app.card.__content > .__menu .__perfil {
     background: url(../../../assets/images/545421.png);
     background-size: 40px;
 }
 
-.app.card.__content > .__menu .splide__slide .__artigos-cientificos {
+.app.card.__content > .__menu .__artigos-cientificos {
     background: url(../../../assets/images/151585.png);
     background-size: 40px;
 }
 
-.app.card.__content > .__menu .splide__slide .__localizacao {
+.app.card.__content > .__menu .__localizacao {
     background: url(../../../assets/images/445421.png);
     background-size: 40px;
 }
 
-.app.card.__content > .__menu .splide__slide .__cladograma {
+.app.card.__content > .__menu .__cladograma {
     background: url(../../../assets/images/778871.png);
     background-size: 40px;
 }
 
-.app.card.__content > .__menu .splide__slide .__cladograma {
+.app.card.__content > .__menu .__cladograma {
     background: url(../../../assets/images/778871.png);
     background-size: 40px;
 }
 
-.app.card.__content > .__menu .splide__slide .__midia {
+.app.card.__content > .__menu .__midia {
     background: url(../../../assets/images/545646.png);
     background-size: 40px;
 }
@@ -239,9 +267,24 @@
 
 .app.__lock > .__wrapper-buttons > .__button.secondary { background: #c31e1e; }
 
+.app.__lock .link {
+    border-bottom: 1px solid black;
+    padding-bottom: 5px;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
 .app.__load div:nth-child(2) {
     margin-top: 20px;
     font-size: 0.9em;
+}
+
+.app.__share {
+    padding-right: 15px;
+    text-align: right;
+    line-height: 40px;
+    font-size: 1.5em;
+    cursor: pointer;
 }
 
 @media only screen and (max-height: 640px) {
@@ -255,7 +298,10 @@
 
     .app.card > .__art { background-size: cover; }
 
-    .app.card.__content > .__decricao { font-size: 0.9em; }
+    .app.card.__content > .__decricao { 
+        font-size: 0.9em; 
+        max-height: 90px;
+    }
 
     .app.card.__content > .__nome-popular,
     .app.card.__content > .__nome-cientifico { margin-bottom: 5px; }
@@ -268,3 +314,21 @@
         height: calc(560px - 313px);
     }
 } 
+
+.cropper { margin: 0 auto; }
+
+.__show-more {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    margin-left: -12.5px;
+    width: 25px;
+    height: 25px !important; 
+    background: url(../../../assets/images/656521.png);
+    background-size: contain;
+    cursor: pointer;
+}
+
+@media only screen and (max-width: 602px) {
+    .cropper { width: 280px !important; }
+}

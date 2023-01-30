@@ -85,7 +85,7 @@
                             optional: true,
                             rules: [
                                 { type: 'minLength[1]' },
-                                { type: 'maxLength[140]' }
+                                { type: 'maxLength[600]' }
                             ]
                         }
                     },
@@ -110,7 +110,7 @@
                     url: '/api/especie/alterar-dados-especie',
                     data: params,
                 }).then((response) => {
-                    this.$emit('update', {
+                    this.$emit('updateGeral', {
                         nomeCientifico: response.data.nome_cientifico,
                         nomePopular: response.data.nome_popular,
                         descricao: response.data.descricao

@@ -22,14 +22,14 @@
     border-top-right-radius: 10px;
 }
 
-.card.head .buttons { width: 100px; background: #f5f5f5; }
+.card.head .buttons { width: 75px; background: #f5f5f5; }
 
 .card.head .title { 
     box-sizing: border-box;
     width: calc(100% - 130px); 
     line-height: 40px;
-    padding: 0 0 0 20px;
-    margin: 0 20px 0 0;
+    padding: 0 0 0 10px;
+    margin: 0 10px 0 0;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -43,46 +43,32 @@
 
 .card.head .title ::selection { background: none; }
 
-.card.head .buttons, .card.head .title {
+.card.head .buttons, .card.head .title, .card.head .extra {
     float: left;
     height: inherit;
+}
+
+.card.head .extra {
+    width: 45px;
 }
 
 .card.head .buttons div:nth-child(1),
 .card.head .buttons div:nth-child(2) {
-    width: 50px;
-    height: inherit;
+    position: relative;
+    top: 10px;
+    left: 5px;
+    width: 20px;
+    height: 20px;
     float: left;
     cursor: pointer;
+    margin-left: 10px;
+    border-radius: 50px;
 }
 
-.card.head .buttons div:nth-child(1) {
-    background: url(./7787567.png) #f1f1f1;
-    background-position: center;
-    background-size: 15px;
-    background-repeat: no-repeat;
-}
+.card.head .buttons div:nth-child(1) { background: #dc0000; }
 
-.card.head .buttons div:nth-child(1):hover {
-    background: url(./7787514.png) #c31e31;
-    background-position: center;
-    background-size: 15px;
-    background-repeat: no-repeat;
-}
+.card.head .buttons div:nth-child(2) { background: #f3cc91; }
 
-.card.head .buttons div:nth-child(2) {
-    background: url(./1303882.png) #ececec;
-    background-position: center;
-    background-size: 20px;
-    background-repeat: no-repeat;
-}
-
-.card.head .buttons div:nth-child(2):hover {
-    background: url(./1303822.png) #1e66c3;
-    background-position: center;
-    background-size: 20px;
-    background-repeat: no-repeat;
-}
 
 .card.content { 
     position: relative;

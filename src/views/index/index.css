@@ -1,132 +1,57 @@
-.index-page {
+/*.index-page {
     width: 100%;
     height: 100%;
 }
 
-/* menu */
-
-.menu-side-btn { 
-    font-size: 1.1em;
-    padding: 8px 15px 8px 15px;
-    border-radius: 5px;
-    border: none;
-    background: #1e5ac3;
-    color: #ffffff;
-    letter-spacing: 0.05em;
-    font-family: 'Sorts Mill Goudy';
-}
-
-.menu-side-btn i {
-    margin-right: 5px;
-}
-
 .index-page .index.head {
+    display: flex;
+    align-items: center; 
     width: 100%;
-    padding: 60px 60px 0 60px;
-    display: table;
+    height: 120px;
 }
 
-.index-head.menu { height: 40px; }
+.index-head.menu { 
+    display: table;
+    padding: 0 30px 0 30px;
+}
 
 .index-head.menu-item { 
     float: left;
     margin: 0 10px 0 0;
 }
 
-.index-head.menu-item:last-child { margin: 0; }
-
-.index-head.menu-button { 
-    display: inline-block;
-    background: #1e5ac3;
-    color: #ffffff;
-    text-decoration: none;
+.menu-side-btn { 
+    width: 40px;
     height: 40px;
-    font-size: 0.9em;
+    font-size: 1em;
     border-radius: 5px;
-    line-height: 40px;
-    padding: 0 20px 0 20px;
+    border: none;
+    background: #66696e;
+    color: #ffffff;
+    font-family: 'Sorts Mill Goudy';
+    line-height: 43px;
 }
-
-.index-head.menu .index-head.menu-item:nth-child(2) .menu-button { background: #9e9e9e; }
-
-/* fim menu */
 
 .index-page .index.body {
     width: 100%;
-    height: calc(100% - 100px);
-}
-
-.index-body.banner {
-    padding: 120px 0 0 0;
+    height: calc(100% - 120px);
 }
 
 .index-body.banner-brand {
+    position: absolute;
+    bottom: 15px;
+    left: 20px;
+    margin-top: 120px;
     font-family: "Sorts Mill Goudy";
-    font-size: 5em;
-    /*color: #c3c3c3;*/
-    color: #ffffff;
+    font-size: 1.5em;
+    color: rgba(255, 255, 255, 0.8);
     text-align: center;
-}
-
-.index-body.banner-search {
-    max-width: 700px;
-    margin: 30px auto 0 auto;
-}
-
-/* slide */
-
-.index-body.splide {
-    max-width: 700px;
-    margin: 30px auto 0 auto;
-}
-
-.index-body.splide .splide__slide {
-    height: 200px;
-    margin: 0 10px 0 0;
-    background: #1e5ac3;
-    border-radius: 5px;
-    text-align: center;
-    line-height: 200px;
-    font-variant: bold;
-    color: #ffffff;
     cursor: pointer;
-}
-
-.index-body.splide .splide__slide span {
-    display: inline-block;
-    width: 150px;
-    font-weight: bold;
-    text-shadow: 0 0 0 rgba(0,0,0,0.5);
-}
-
-.index-body.splide .splide__slide:nth-child(1) {
-    background: url('../../assets/images/arte_1.jpg');
-    background-size: cover;
-}
-
-.index-body.splide .splide__slide:nth-child(2) {
-    background: url('../../assets/images/arte_2.jpg');
-    background-size: cover;
-}
-
-.index-body.splide .splide__slide:nth-child(3) {
-    background: url('../../assets/images/arte_3.jpg');
-    background-size: cover;
-}
-
-.index-body.splide .splide__slide:nth-child(4) {
-    background: url('../../assets/images/arte_4.jpg');
-    background-size: cover;
-}
-
-.index-body.splide .splide__slide:nth-child(5) {
-    background: url('../../assets/images/arte_5.jpg');
-    background-size: cover;
-}
+}*/
 
 /* box-itens */
 
-.__box-itens > .__facede-box {
+/*.__box-itens > .__facede-box {
     position: relative;
     width: 40px;
     height: 40px;
@@ -221,33 +146,152 @@
     margin-bottom: 10px; 
     display: none;
 }
-  
-@media only screen and (max-width: 830px) {
-    .index-body.banner-search {
-        padding: 0 40px 0 40px;
-    }
-} 
 
-@media only screen and (max-width: 750px) {
-    .index-body.banner-search {
-        padding: 0 40px 0 40px;
-    }
+.index-head .menu-item:nth-child(3) {
+    max-width: 480px;
+}*/
 
+/* responsive */
+
+/*@media only screen and (max-width: 569px) {
     .index-page .index.head {
+        display: flex;
+        align-items: center; 
         width: 100%;
-        padding: 60px 40px 0 40px;
-        display: table;
+        height: 150px;
     }
+
+    .index-page .index.body {
+        width: 100%;
+        height: calc(100% - 150px);
+    }
+}*/
+
+.index-page {
+    width: 100%;
+    height: 100%;
+}
+
+.index.head {
+    width: 100%;
+    height: 50px;
+    background: #323234;
+}
+
+/* left-menu */
+
+.left-menu {
+    float: left;
+    padding-top: 10px;
+    padding-left: 10px;
+}
+
+.right-menu {
+    float: right;
+    padding-top: 10px;
+    padding-right: 10px;
+}
+
+.left-menu .side-menu-btn,
+.right-menu .especie-box-btn { 
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    line-height: 30px;
+    color: #ffffff;
+    cursor: pointer;
+}
+
+.right-menu .especie-box-btn { display: block; }
+
+.logo {
+    float: left;
+    width: calc(100% - 80px);
+    text-align: center;
+    font-family: "Sorts Mill Goudy";
+    color: #ffffff;
+    font-size: 1.3em;
+    line-height: 55px;
+}
+
+.logo span { cursor: pointer; }
+
+.index.body {
+    width: 100%;
+    height: calc(100% - 50px);
+}
+
+/* hover box */
+
+.hover-box { position: relative; }
+
+.hover-box #control-box { display: none; }
+
+.hover-box #control-box:checked + .box { 
+    visibility: visible; 
+    opacity: 1;
+    top: 35px;
+}
+
+.hover-box .box { 
+    position: absolute;
+    right: 0%;
+    top: 25px;
+    width: 200px;
+    height: 154px;
+    max-height: 154px;
+    background: #ffffff;
+    border-radius: 5px;
+    visibility: hidden;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 20px 25px -5px, rgba(0, 0, 0, 0.04) 0px 10px 10px -5px;
+    opacity: 0;
+    transition: all 0.5s;
+}
+
+.box > .list-itens-especie { 
+    width: 100%; 
+    height: 154px;
+    overflow-y: auto;
+}
+
+.box > .list-itens-especie .item { 
+    display: table;
+    width: inherit; 
+    border-bottom: 1px solid rgb(230, 230, 230);
+    cursor: pointer;
+}
+
+.box > .list-itens-especie .item:last-child { border-bottom: none;}
+
+.box > .list-itens-especie .title {
+    width: 170px;
+    font-size: 0.8em;
+    line-height: 30px;
+    padding-left: 10px;
+    font-style: italic;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
 } 
 
-@media only screen and (max-width: 488px) {
-    .index-head.menu { float: left; }
+.box > .list-itens-especie .title,
+.box > .list-itens-especie .close-btn { float: left; }
 
-    .index-head.menu-item:nth-child(5) { display: none }
+.box > .list-itens-especie .close-btn {
+    width: 30px;
+    height: 30px;
+    font-size: 0.9em;
+    text-align: center;
+    line-height: 33px;
+}
 
-    .index-head.menu-item:nth-child(4) { display: none }
-
-    .index.head > .__dropdown-menu.first { display: block; }
-
-    .index-head.menu-button.first { display: inline-block; }
-} 
+.hover-box .box::before {
+    content: '';
+    position: absolute;
+    top: -10px;
+    right: 5%;
+    border-bottom: 5px solid #ffffff;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 5px solid transparent;
+}

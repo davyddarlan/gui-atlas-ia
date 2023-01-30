@@ -1,11 +1,13 @@
 <template>
     <div class="app geral-conteudo">
+        <editar-card-modal v-on:updateGeral="atualizarDadosCard" :dados="dados" :uuid="uuid" :show="modals.editarEspecie" v-on:close="modals.editarEspecie = false"></editar-card-modal>
         <estado-conservacao-modal v-on:match="atualizarEstadoConservacao" :uuid="uuid" :show="modals.estadoConservacao" v-on:close="modals.estadoConservacao = false"></estado-conservacao-modal>
         <nome-popular-modal v-on:match="atualizarQtdNomesPopulares" :uuid="uuid" :show="modals.nomePopular" v-on:close="modals.nomePopular = false"></nome-popular-modal>
         <descobridor-modal v-on:match="atualizarQtdDescobridores" :uuid="uuid" :show="modals.descobridor" v-on:close="modals.descobridor = false"></descobridor-modal>
         <marcador-modal v-on:match="atualizarQtdMarcadores" :uuid="uuid" :show="modals.marcador" v-on:close="modals.marcador = false"></marcador-modal>
         <geral-modal :dados="output" v-on:update="atualizarDadosGerais" :uuid="uuid" :show="modals.geral" v-on:close="modals.geral = false"></geral-modal>
         <lista-dados-modal :title="lists.title" :uuid="uuid" :what-list="lists.routeName" :show="modals.listaDados" v-on:close="modals.listaDados = false"></lista-dados-modal>
+        <button v-show="adminRole" class="ui fluid tiny button __edit-card" v-on:click="modals.editarEspecie = true">Editar card</button>
         <div class="__card">
             <div class="__menu" data-position="bottom right" v-show="adminRole">
                 <i class="fa-solid fa-ellipsis-vertical"></i>
@@ -15,7 +17,7 @@
                     <li v-on:click="modals.estadoConservacao = true">Editar</li>
                 </ul>
             </div>
-            <div class="__conteudo">
+            <div class="__conteudo estado-conservacao">
                 <div class="__label" v-if="labelEstadoConservacao">
                     <img :src="labelEstadoConservacao" />
                 </div>
@@ -23,6 +25,7 @@
                     <p class="__titulo">Estado de conservação</p>
                     <p class="__conteudo">{{ output.estadoConservacao | semDado }}</p>
                 </div>
+                <p class="__extra">Fonte: IUCN</p>
             </div>
         </div>
         <div class="__card">
@@ -111,6 +114,7 @@
     import GeralModal from '../modals/geral.vue';
     import ListaDadosModal from '../modals/lista-dados.vue';
     import RolesMixin from '../../../mixins/roles';
+    import EditarCardModal from '../modals/editar-card.vue';
 
     // estados
 
@@ -129,14 +133,25 @@
             'descobridorModal' : DescobridorModal,
             'marcadorModal': MarcadorModal,
             'geralModal': GeralModal,
-            'listaDadosModal': ListaDadosModal
+            'listaDadosModal': ListaDadosModal,
+            'editarCardModal': EditarCardModal,
         },
         mixins: [RolesMixin],
         props: {
             uuid: {
                 type: String,
                 default: null,
-            }
+            },
+            dados: {
+                type: Object,
+                default: function() {
+                    return {
+                        nomeCientifico: null,
+                        nomePopular: null,
+                        descricao: null
+                    }
+                }
+            },
         },
         data: function() {
             return {
@@ -147,6 +162,7 @@
                     descobridor: false,
                     marcador: false,
                     listaDados: false,
+                    editarEspecie: false,
                 },
                 output: {
                     estadoConservacao: '',
@@ -167,6 +183,9 @@
         watch: {
             'output.estadoConservacao': function(data) {
                 switch (data) {
+                    case 'Pouco Preocupante':
+                        this.labelEstadoConservacao = LC;
+                    break;
                     case 'Quase Ameaçada':
                         this.labelEstadoConservacao = NT;
                     break;
@@ -176,14 +195,8 @@
                     case 'Em Perigo':
                         this.labelEstadoConservacao = EN;
                     break;
-                    case 'Em Perigo Crítico':
+                    case 'Criticamente em Perigo':
                         this.labelEstadoConservacao = CR;
-                    break;
-                    case 'Possivelmente Extinta Na Natureza':
-                        this.labelEstadoConservacao = null;
-                    break;
-                    case 'Possivelmente Extinta':
-                        this.labelEstadoConservacao = null;
                     break;
                     case 'Extinta Na Natureza':
                         this.labelEstadoConservacao =   EW;
@@ -223,7 +236,7 @@
             carregarDadosGerais: function() {
                 this.axios({
                     method: 'GET',
-                    url: '/api/especie/exibir-dados-gerais/' + this.uuid,
+                    url: '/api/especie/public/exibir-dados-gerais/' + this.uuid,
                 }).then((response) => {
                     this.output.estadoConservacao = response.data.estado_conservacao;
                     this.output.nomeCientifico = response.data.nome_cientifico;
@@ -276,7 +289,14 @@
                 }
 
                 this.modals.listaDados = true;
-            }
+            },
+            atualizarDadosCard: function(dados) {
+                this.$emit('updateGeral', {
+                    nomeCientifico: dados.nomeCientifico,
+                    nomePopular: dados.nomePopular,
+                    descricao: dados.descricao
+                });
+            },
         }
     }
 </script>
@@ -334,6 +354,12 @@
         padding: 20px 25px 20px 25px;
     }
 
+    .app.geral-conteudo > .__card > .__conteudo .__extra {
+        font-size: 0.7em;
+        font-style: italic;
+        color: #000000;
+    }
+
     .app.geral-conteudo > .__card > .__conteudo > .__label {
         width: 40px;
         height: 40px;
@@ -362,5 +388,9 @@
 
     .app.geral-conteudo > .__card > .__conteudo > .__wrapper { margin: 0 0 30px 0; }
 
+    .app.geral-conteudo > .__card > .__conteudo.estado-conservacao > .__wrapper { margin: 0; }
+
     .app.geral-conteudo > .__card > .__conteudo > .__wrapper:last-child { margin: 0; }
+
+    .app.geral-conteudo .__edit-card { margin-bottom: 10px; }
 </style>

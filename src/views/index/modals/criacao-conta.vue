@@ -46,6 +46,14 @@
                         <input type="password" name="confirmacaoSenha" placeholder="Confirmação de senha">
                     </div>
                 </div>
+                <!--<div class="field">
+                    <div class="ui checkbox">
+                        <input v-model="input.termos" id="termos" type="checkbox" tabindex="0" class="hidden">
+                        <label for="termos" >Eu aceito os termos.</label>
+                        <span class="termos">Ler termos</span>
+                    </div>
+                </div>-->
+                <div class="ui error message"></div>
             </form>
         </template>
         <template v-slot:footer>
@@ -85,6 +93,7 @@
                     dataNascimento: '',
                     email: '',
                     senha: '',
+                    termos: false,
                 },
             }
         },
@@ -95,46 +104,76 @@
                         primeiroNome: {
                             identifier: 'primeiroNome',
                             rules: [
-                                { type: 'minLength[1]' },
-                                { type: 'maxLength[255]' },
+                                { 
+                                    type: 'minLength[1]',
+                                    prompt: 'O campo "{name}" não possui qualquer valor'
+                                },
+                                { 
+                                    type: 'maxLength[255]',
+                                    prompt: 'O campo "{name}" deve conter no máximo 255 caracteres.'
+                                },
                             ]
                         },
                         sobrenome: {
                             identifier: 'sobrenome',
                             rules: [
-                                { type: 'minLength[1]' },
-                                { type: 'maxLength[255]' }
+                                { 
+                                    type: 'minLength[1]',
+                                    prompt: 'O campo "{name}" não possui qualquer valor'
+                                },
+                                {   
+                                    type: 'maxLength[255]',
+                                    prompt: 'O campo "{name}" deve conter no máximo 255 caracteres.'
+                                }
                             ]
                         },
                         sexo: {
                             identifier: 'sexo',
                             rules: [
-                                { type: 'regExp[/^(M|F)$/]' },
+                                { 
+                                    type: 'regExp[/^(M|F)$/]',
+                                    prompt: 'Selecione uma opção para o campo "{name}"'
+                                },
                             ]
                         },
                         dataNascimento: {
                             identifier: 'dataNascimento',
                             rules: [
-                                { type: 'regExp[/^(0[1-9]|1\\d|2\\d|3[01])\\/(0[1-9]|1[0-2])\\/(19|20)\\d{2}$/]' },
+                                { 
+                                    type: 'regExp[/^(0[1-9]|1\\d|2\\d|3[01])\\/(0[1-9]|1[0-2])\\/(19|20)\\d{2}$/]',
+                                    prompt: 'O valor do campo "{name}" não segue o padrão 00/00/0000'
+                                },
                             ]
                         },
                         email: {
                             identifier: 'email',
                             rules: [
-                                { type: 'email' },
-                                { type: 'maxLength[180]' },
+                                { 
+                                    type: 'email',
+                                    prompt: 'O valor do campo "{name}" não é válido.'
+                                },
+                                { 
+                                    type: 'maxLength[180]',
+                                    prompt: 'O campo "{name}" deve conter no máximo 180 caracteres.'
+                                },
                             ]
                         },
                         senha: {
                             identifier: 'senha',
                             rules: [
-                                { type: 'regExp[/^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\\$%\\^&\\*])(?=.{8,})/]' }
+                                { 
+                                    type: 'regExp[/^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\\$%\\^&\\*])(?=.{8,})/]',
+                                    prompt : 'O campo "{name}" deve atender os seguintes requisitos: <ul class="sublist"><li>1. Pelo menos uma letra minúsculas (a-z)</li><li>2. Pelo menos uma letras maiúsculas (A-Z)</li><li>3. Um ou mais numerais</li><li>4. Pelo menos um caracter especial (!@#$%^&*)</li></ul>'
+                                },
                             ]
                         },
                         confirmacaoSenha: {
                             identifier: 'confirmacaoSenha',
                             rules: [
-                                { type: 'match[senha]' },
+                                { 
+                                    type: 'match[senha]',
+                                    prompt: 'O campo "{name}" deve conter um valor igual ao campo <b>senha</b>'
+                                },
                             ]
                         }
                     },
@@ -170,3 +209,42 @@
         }
     }
 </script>
+
+<style>
+    .ui.error.message {
+        background: #fff6f6;
+        border: 1px solid #9f3a38;
+        border-radius: 5px;
+        padding: 25px 20px 25px 20px;
+        font-size: 0.85em;
+        line-height: 1.2em;
+    }
+
+    .ui.error.message li { 
+        margin-bottom: 15px; 
+    }
+
+    .ui.error.message li:last-child {
+        margin-bottom: 0;
+    }
+
+    .ui.error.message .sublist { 
+        margin-top: 10px; 
+    }
+
+    .ui.error.message .sublist li { 
+        margin-bottom: 5px; 
+        font-size: 0.95em;
+    }
+
+    .ui.error.message .sublist li:last-child { margin-bottom: 0; }
+
+    .ui.form.criar-conta .termos {
+        display: inline-block;
+        font-size: 0.95em;
+        margin-top: 5px;
+        cursor: pointer;
+    }
+
+    .ui.form.criar-conta .termos:hover { text-decoration: underline; }
+</style>

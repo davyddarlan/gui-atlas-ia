@@ -20,6 +20,12 @@
                                 </li>
                             </template>
                         </template>
+                        <!--<groupItensMenu :name="'Usuário'">
+                            <template v-slot:itens>
+                                <li>Editar perfil</li>
+                                <li>Alterar senha</li>
+                            </template>
+                        </groupItensMenu>-->
                     </ul>
                 </template>
                 <template v-if="!showElements">
@@ -46,8 +52,12 @@
     import ManAvatar from '../../assets/images/441441.png';
     import WomanAvatar from '../../assets/images/121556.png';
     import RolesMixin from '../../mixins/roles';
+    import GroupItensMenu from './group-itens-menu.vue';
 
     export default {
+        components: {
+            'groupItensMenu': GroupItensMenu,
+        },
         props: {
             open: {
                 type: Boolean,
@@ -77,8 +87,8 @@
                     /*{
                         title: 'alterar tokens',
                         icon: 'fa-solid fa-passport'
-                    },*/
-                    /*{
+                    },
+                    {
                         title: 'Sobre',
                         icon: 'fa-solid fa-plus'
                     },*/

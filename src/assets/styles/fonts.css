@@ -7,3 +7,8 @@
     font-family: "Sorts Mill Goudy";
     src: url(../fonts/Sorts_Mill_Goudy/SortsMillGoudy-Regular.ttf);
 }
+
+@font-face {
+    font-family: "Alegreya";
+    src: url(../fonts/Alegreya/Alegreya-VariableFont_wght.ttf);
+}

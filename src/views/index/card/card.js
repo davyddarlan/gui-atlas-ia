@@ -6,7 +6,6 @@ import CladogramaSection from '../sections/cladograma.vue';
 import GeralSection from '../sections/geral.vue';
 import LocalizacaoSection from '../sections/localizacao.vue';
 import MidiaSection from '../sections/midia.vue';
-import EditarCardModal from '../modals/editar-card.vue';
 import CompartilharCardModal from '../modals/compartilhar-card.vue';
 import ModalComponent from '../../../components/modal/modal.vue';
 import { Cropper } from 'vue-advanced-cropper';
@@ -42,7 +41,6 @@ export default {
         'geralSection': GeralSection,
         'localizacaoSection': LocalizacaoSection,
         'midiaSection': MidiaSection,
-        'editarCardModal': EditarCardModal,
         'compartilhar-card-modal': CompartilharCardModal,
         'modal': ModalComponent,
         'cropper': Cropper,
@@ -73,12 +71,12 @@ export default {
                 status: false,
                 titulo: '',
                 conteudo: null,
+                infoGeral: { 
+                    titulo: 'Informações gerais',
+                    class: '__perfil',
+                    conteudo: GeralSection,
+                },
                 conteudos: [
-                    { 
-                        titulo: 'Informações gerais',
-                        class: '__perfil',
-                        conteudo: GeralSection,
-                    },
                     { 
                         titulo: 'Cladograma',
                         class: '__cladograma',
@@ -114,7 +112,6 @@ export default {
     },
     mounted: function() {
         this.carregarDadosCard();
-        this.carregarMenu();
     },
     filters: {
         nomePopular: function(value) {
@@ -152,18 +149,8 @@ export default {
         }
     },
     methods: {
-        carregarMenu: function() {
-            let sliders = document.querySelectorAll('.app.card.__content > .__menu');
-
-            for (let x = 0; x < sliders.length; x++) {
-                new Splide(sliders[x], {
-                    perPage: 4,
-                    rewind : false,
-                }).mount();
-            }
-        },
         abrirSubpagina: function(conteudo) {
-            if (!this.$store.state.user.status) {
+            if (!this.$store.state.user.status && conteudo.class != '__perfil') {
                 this.authData.protectCard = true;
             } else {
                 this.loadCard = true;
@@ -266,6 +253,15 @@ export default {
             }).catch((error) => {
                 this.loadFile = false;
             });
+        },
+        removerArte: function() {
+            this.axios.delete('/api/especie/remover-capa', {
+                params: {
+                    uuid: this.uuid,
+                },
+            }).then((response) => {
+                this.card.arte = false;  
+            });        
         },
         atualizarDados: function(dados) {
             this.card.nomePopular = dados.nomePopular;
