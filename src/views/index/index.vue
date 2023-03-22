@@ -15,96 +15,37 @@
                 </li>
             </ul>
             <div class="logo">
-                <h1><span v-on:click="modals.sobre = true">Altas iA</span></h1>
+                <search @getEntity="selecionarCard"></search>
+                <h1><span v-on:click="modals.sobre = true">Atlas iA</span></h1>
             </div>
             <ul class="right-menu">
                 <li class="item">
                     <div class="hover-box">
                         <label for="control-box" class="especie-box-btn">
+                            <span v-show="boxCards" class="count-itens">{{ boxCards }}</span>
                             <i class="fa-solid fa-inbox"></i>
                         </label>
-                        <input type="checkbox" id="control-box" />
+                        <input type="checkbox" id="control-box" v-model="boxCardsControl" />
                         <div class="box">
                             <ul class="list-itens-especie">
-                                <li class="item">
-                                    <div class="title">Davyd Darlan Gomes de Oliveira</div>
-                                    <div class="close-btn">
-                                        <i class="fa-solid fa-xmark"></i>
-                                    </div>
+                                <li v-if="!boxCards" class="item without-data">
+                                    A caixa de armazenamento <br> está vazia!
                                 </li>
-                                <li class="item">
-                                    <div class="title">Nome da espécie</div>
-                                    <div class="close-btn">
-                                        <i class="fa-solid fa-xmark"></i>
-                                    </div>
-                                </li>
-                                <li class="item">
-                                    <div class="title">Nome da espécie</div>
-                                    <div class="close-btn">
-                                        <i class="fa-solid fa-xmark"></i>
-                                    </div>
-                                </li>
-                                <li class="item">
-                                    <div class="title">Nome da espécie</div>
-                                    <div class="close-btn">
-                                        <i class="fa-solid fa-xmark"></i>
-                                    </div>
-                                </li>
-                                <li class="item">
-                                    <div class="title">Nome da espécie</div>
-                                    <div class="close-btn">
-                                        <i class="fa-solid fa-xmark"></i>
-                                    </div>
-                                </li>
+                                <template v-for="(card, index) in cards">
+                                    <li v-if="card.status == 'HIDDEN'" v-on:click="maximizarCard(card)" class="item">
+                                        <p class="title">{{ card.title | nomeCientifico }}</p>
+                                        <div v-on:click="removerCard(card)" class="close">
+                                            <i class="fa-solid fa-xmark"></i>
+                                        </div>
+                                    </li>
+                                </template>
                             </ul>
                         </div>
                     </div>
                 </li>
             </ul>
         </div>
-        <!--<div class="index head">
-            <ul class="index-head menu">
-                <li class="index-head menu-item">
-                    <button class="menu-side-btn" v-on:click="openSideMenu = true">
-                        <i class="fa-solid fa-bars"></i>
-                    </button>
-                </li>
-                <li class="index-head menu-item">
-                    <div class="__box-itens">
-                        <div class="__facede-box">
-                            <span v-show="boxCards" class="__counter-itens">{{ boxCards }}</span>
-                            <i class="fa-solid fa-box-open"></i>
-                        </div>
-                        <div class="__space"></div>
-                        <div class="__wrapper-results">
-                            <div class="__without-data" v-show="!boxCards">
-                                Não há qualquer card
-                                na caixa!
-                            </div>
-                            <div class="__with-data" v-show="boxCards">
-                                <p class="__title">Lista de cards</p>
-                                <ul class="__list">
-                                    <template v-for="(card, index) in cards">
-                                        <li v-on:click="maximizarCard(card)" class="__item" v-if="card.status == 'HIDDEN'">
-                                            <span>{{ card.title | nomeCientifico }}</span>
-                                            <i v-on:click="removerCard(card)" class="fa-solid fa-xmark"></i>
-                                        </li>
-                                    </template>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </li>
-                <li class="index-head menu-item" style="max-width: 460px;">
-                    <search v-on:obterRegistro="selecionarCard"></search>
-                </li>
-            </ul>
-        </div>-->
-        <div class="index body">
-            <!--<div class="index-body banner">
-                <h1 class="index-body banner-brand" v-on:click="modals.sobre = true">Atlas iA</h1>
-            </div>-->
-        </div>
+        <div class="index body"></div>
         <criacao-especie-modal v-on:close="modals.criarEspecie = false" :show="modals.criarEspecie"></criacao-especie-modal>
         <criacao-conta-modal v-on:close="modals.criarConta = false" :show="modals.criarConta"></criacao-conta-modal>
         <autenticacao-modal v-on:close="modals.login = false" :show="modals.login"></autenticacao-modal>

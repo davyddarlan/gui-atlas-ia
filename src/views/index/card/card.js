@@ -1,5 +1,4 @@
 import cardComponent from '../../../components/card/card.vue';
-import Splide from '@splidejs/splide';
 import Subpage from '../subpage/subpage.vue';
 import ArtigoSection from '../sections/artigo.vue';
 import CladogramaSection from '../sections/cladograma.vue';

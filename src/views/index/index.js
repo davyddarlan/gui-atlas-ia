@@ -1,4 +1,4 @@
-import SearchComponent from '../../components/search/search.vue';
+import SearchComponent from '../../components/search_opt/search.vue';
 import CriacaoEspecieModal from './modals/criacao-especie.vue';
 import CriacaoContaModal from './modals/criacao-conta.vue';
 import AutenticacaoModal from './modals/autenticacao.vue';
@@ -38,6 +38,7 @@ export default {
             showElements: false,
             sectionUserModal: '',
             openSideMenu: false,
+            boxCardsControl: false,
         }
     },
     mixins: [RolesMixin],
@@ -67,6 +68,12 @@ export default {
         },
     },
     mounted: function() {
+        window.addEventListener('click', () => {
+            if (this.boxCardsControl) {
+                this.boxCardsControl = false;
+            }
+        });
+
         this.axios.interceptors.response.use((response) => {
             let config = {
                 title: 'Tudo certo!',

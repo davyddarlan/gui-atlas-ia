@@ -2,7 +2,7 @@
     <card v-on:initMove="$emit('initMove', uuid)" :position="position" :title="card.titleCard" v-on:minimized="minimizarCard" v-on:closed="removerCard">
         <template v-slot:extra>
             <div class="app __share" v-on:click="modals.compartilhar = true">
-                <i class="fa-sharp fa-solid fa-share"></i>
+                <i class="fa-solid fa-share"></i>
             </div>
         </template>
         <template v-slot:content>

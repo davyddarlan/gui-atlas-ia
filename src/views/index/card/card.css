@@ -77,7 +77,6 @@
     height: 180px;
     margin-bottom: 30px;
     background: #f1f1f1;
-    border-radius: 5px;
     overflow: hidden;
 }
 
@@ -121,6 +120,7 @@
     width: 100%;
     height: calc(560px - (180px + 40px + 30px));
     font-size: 1em;
+    background: #ffffff;
 }
 
 .app.card.__content > .__nome-popular,
@@ -280,10 +280,10 @@
 }
 
 .app.__share {
-    padding-right: 15px;
+    padding-right: 9px;
     text-align: right;
-    line-height: 40px;
-    font-size: 1.5em;
+    line-height: 30px;
+    font-size: 1.2em;
     cursor: pointer;
 }
 
@@ -319,7 +319,7 @@
 
 .__show-more {
     position: absolute;
-    bottom: 0;
+    bottom: 30px;
     left: 50%;
     margin-left: -12.5px;
     width: 25px;
@@ -332,3 +332,9 @@
 @media only screen and (max-width: 602px) {
     .cropper { width: 280px !important; }
 }
+
+@media only screen and (max-height: 640px) {
+    .app.sub-pagina.__sub-pagina > .__body {
+        height: calc(100%);
+    }
+} 
