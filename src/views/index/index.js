@@ -155,7 +155,10 @@ export default {
         },
         abrirCard: function(data) {
             let isThere = false;
-            let position = this.positionManager();
+            let position = this.positionManager(
+                Math.floor(Math.random() * document.documentElement.clientWidth),
+                Math.floor(Math.random() * document.documentElement.clientHeight)  
+            );
 
             if (this.cards.length == 10) {
                 this.createToast({
@@ -170,10 +173,10 @@ export default {
                         title: data.title,
                         ref: null,
                         status: 'VISIBLE',
-                        position: {
+                        /*position: {
                             x: position.x,
                             y: position.y
-                        },
+                        },*/
                     });  
                 } else {
                     for (let i = 0; i < this.cards.length; i++) {
@@ -247,41 +250,34 @@ export default {
             this.sectionUserModal = section;
             this.modals.user = true;
         },
-        positionManager: function() {
-            let x, y, overflowX, overflowY,
-                isLimitedX, isLimitedY, MAX_HEIGHT;
+        positionManager: function(x_input, y_input) {
+            let x, y, position = null, card_width, card_height,
+                clientWidth, clientHeight, final_result, random_padding;
 
-            const MAX_WIDTH = 330, 
-                LIMIT_POSITION = 20, PADDING = 20;
+            const EXTRA_HEIGHT_Y = 50, PADDING_LIMIT = 30;
 
-            if (document.documentElement.clientHeight <= 640) {
-                MAX_HEIGHT = 500;
-            } else {
-                MAX_HEIGHT = 600;
+            clientWidth = document.documentElement.clientWidth;
+            clientHeight = document.documentElement.clientHeight;
+
+            card_width = (clientWidth <= 400) ? 300 : 330;
+            card_height = (clientHeight <= 650) ? 500 : 550;
+
+            x = x_input;
+            y = y_input + EXTRA_HEIGHT_Y;
+
+            random_padding = Math.floor(Math.random() * PADDING_LIMIT);
+
+            if (x + card_width > clientWidth) {
+                final_result = x + card_width - clientWidth;
+                x -= final_result + random_padding;
             }
 
-            x = Math.floor(Math.random() * document.documentElement.clientWidth);
-            y = Math.floor(Math.random() * document.documentElement.clientHeight);
-
-            overflowY = document.documentElement.clientHeight - y;
-            overflowX = document.documentElement.clientWidth - x;
-            
-            isLimitedX = MAX_WIDTH - overflowX;
-            isLimitedY = MAX_HEIGHT - overflowY;
-
-            if (isLimitedX > 0) {
-                x = x - isLimitedX - PADDING;
-            } else if (x < LIMIT_POSITION) {
-                x = (LIMIT_POSITION - x) + x;
+            if (y + card_height > clientHeight) {
+                final_result = y + card_height - clientHeight;
+                y -= final_result + random_padding;
             }
 
-            if (isLimitedY > 0) {
-                y = y - isLimitedY - PADDING;
-            } else if (y < LIMIT_POSITION) {
-                y = (LIMIT_POSITION - y) + y;
-            }
-
-            let position = {
+            position = {
                 x, y
             };
 

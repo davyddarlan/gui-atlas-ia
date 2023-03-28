@@ -20,7 +20,7 @@
     position: relative;
     width: 100%;
     height: calc(100% - 58px);
-    /*overflow: auto;*/
+    background: #ffffff;
 }
 
 .app.sub-pagina.__sub-pagina > .__head button,
@@ -301,6 +301,7 @@
     .app.card.__content > .__decricao { 
         font-size: 0.9em; 
         max-height: 90px;
+        margin-top: 25px;
     }
 
     .app.card.__content > .__nome-popular,
@@ -310,8 +311,12 @@
 
     .app.card.__content > .__menu { margin: 0 0 15px 0; }
 
-    .app.card > .__content {
+    /*.app.card > .__content {
         height: calc(560px - 313px);
+    }*/
+
+    .app.sub-pagina.__sub-pagina {
+        height: calc(100% - 70px);
     }
 } 
 

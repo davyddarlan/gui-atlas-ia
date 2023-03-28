@@ -46,8 +46,12 @@ export default {
         bootstrap: function() {
             this.bar = this.$refs.bar;
             this.card = this.$refs.card;
+            
+            let position = this.positionManager(this.position.x, this.position.y);
 
-            /*this.orderCards();*/
+            this.position.x = position.x;
+            this.position.y = position.y;
+
             this.translate(this.position.x, this.position.y);
 
             this.startEvents();
@@ -67,8 +71,6 @@ export default {
         close: function() {
             this.showCard = false;
             this.$emit('closed');
-            //this.$destroy();
-            //this.card.parentNode.removeChild(this.card);
         },
         minimize: function() {
             this.showCard = false;
@@ -119,10 +121,16 @@ export default {
 
             this.bar.addEventListener('mouseup', (event) => {
                 this.start = false;
+
+                let position = this.positionManager(this.position.x, this.position.y);
+                this.translate(position.x, position.y);
             });
 
             this.bar.addEventListener('touchend', (event) => {
                 this.start = false;
+
+                let position = this.positionManager(this.position.x, this.position.y);
+                this.translate(position.x, position.y);
             });
 
             document.addEventListener('mousemove', (event) => {
@@ -132,6 +140,43 @@ export default {
             document.addEventListener('touchmove', (event) => {
                 this.moveCard(event);
             });
-        }
+        },
+        positionManager: function(x_input, y_input) {
+            let x, y, position = null, card_width, card_height,
+                clientWidth, clientHeight, final_result, random_padding;
+
+            const EXTRA_HEIGHT_Y = 50, PADDING_LIMIT = 30;
+
+            clientWidth = document.documentElement.clientWidth;
+            clientHeight = document.documentElement.clientHeight;
+
+            card_width = (clientWidth <= 400) ? 300 : 330;
+            card_height = (clientHeight <= 650) ? 500 : 550;
+
+            x = x_input;
+            y = y_input;
+
+            random_padding = Math.floor(Math.random() * PADDING_LIMIT);
+
+            if (x + card_width > clientWidth) {
+                final_result = x + card_width - clientWidth;
+                x -= final_result + random_padding;
+            } else if (x <= 0) {
+                x = random_padding;
+            }
+
+            if (y + card_height > clientHeight) {
+                final_result = y + card_height - clientHeight;
+                y -= final_result + random_padding;
+            } else if (y <= 0 || y <= EXTRA_HEIGHT_Y) {
+                y = EXTRA_HEIGHT_Y + random_padding;
+            }
+
+            position = {
+                x, y
+            };
+
+            return position;
+        },
     }
 }
